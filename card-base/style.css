@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.787);
+    overflow: hidden;
+}
+.content{
+    position: relative;
+    width: 70vw;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+.flex{
+    display: flex;
+}
+.bg{
+    pointer-events: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: .1;
+}
+svg{
+    fill: white;
+}
+.prev, .next{
+    top: 50%;
+    position: absolute;
+}
+.next{
+    right: 6.5%;
+}
+.prev{
+    left: 6.5%;
+}
+.slide{
+    width: 20vw;
+    height: 70vh;
+}
+img{
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.hover-point {
+    position: absolute;
+    z-index: 4;
+    width: 10vw;
+    height: 70vh;
+    
+}
+.carousel .hover-point:nth-child(2){
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+}
+.carousel .hover-point:nth-child(1){
+    top: 50%;
+    right: 43%;
+    transform: translate(-50%, -50%);
+}
+
+.hover-point:nth-child(1):hover ~ .current-slide .slide{
+    transform: perspective(1000px) rotateY(-20deg);
+    transition: .7s;
+}
+
+.hover-point:nth-child(2):hover ~ .current-slide .slide{
+    transform:perspective(1000px) rotateY(20deg);
+    transition: .7s;
+}
+
+.slide{
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    transition: .7s;
+}
+
+.current-slide{
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 80vh;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:.7s;
+}
+
+.next-slide{
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 77%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    opacity: .4;
+    transition: .7s;
+}
+
+.previous-slide{
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 23%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    opacity: .4;
+    transition: .7s;
+}
+.previous-slide .slide{
+    width: 17vw;
+    height: 55vh;
+    transform:perspective(1000px) rotateY(20deg);
+}
+.next-slide .slide{
+    width: 17vw;
+    height: 55vh;
+    transform:perspective(1000px) rotateY(-20deg);
+}
+.next-slide, .previous-slide{
+    z-index: 2;
+}
+
+.tempo-disable{
+    opacity: .5;
+    pointer-events: none;
+}
