@@ -21,7 +21,6 @@ gsap
   .timeline().add(fetchDogApi)
   .set(".ring", { rotationY: 180, cursor: "grab" })
   .set(".img", {
-    // apply transform rotations to each image
     rotateY: (i) => i * -36,
     transformOrigin: "50% 50% 500px",
     z: -500,
